@@ -20,6 +20,8 @@
 		ED8805F41F66997200FF6CAF /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F31F66997200FF6CAF /* CustomAlertView.m */; };
 		ED8805F71F6699A200FF6CAF /* TXCustomAlertWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F61F6699A200FF6CAF /* TXCustomAlertWindow.m */; };
 		ED8805FA1F669BE300FF6CAF /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F91F669BE300FF6CAF /* UIView+Utils.m */; };
+		ED8806011F6784BE00FF6CAF /* BUIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805FE1F6784BE00FF6CAF /* BUIControl.m */; };
+		ED8806021F6784BE00FF6CAF /* BUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8806001F6784BE00FF6CAF /* BUIView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,11 @@
 		ED8805F61F6699A200FF6CAF /* TXCustomAlertWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXCustomAlertWindow.m; sourceTree = "<group>"; };
 		ED8805F81F669BE300FF6CAF /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
 		ED8805F91F669BE300FF6CAF /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
+		ED8805FC1F6784BE00FF6CAF /* BlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockUI.h; sourceTree = "<group>"; };
+		ED8805FD1F6784BE00FF6CAF /* BUIControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIControl.h; sourceTree = "<group>"; };
+		ED8805FE1F6784BE00FF6CAF /* BUIControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIControl.m; sourceTree = "<group>"; };
+		ED8805FF1F6784BE00FF6CAF /* BUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIView.h; sourceTree = "<group>"; };
+		ED8806001F6784BE00FF6CAF /* BUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIView.m; sourceTree = "<group>"; };
 		FC96D50A380B1F6E37539463 /* libPods-UIView-AlertViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UIView-AlertViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -159,6 +166,7 @@
 		ED8805EE1F66992C00FF6CAF /* UIView-AlertViewSources */ = {
 			isa = PBXGroup;
 			children = (
+				ED8805FB1F6784BE00FF6CAF /* BlockUI */,
 				ED8805F81F669BE300FF6CAF /* UIView+Utils.h */,
 				ED8805F91F669BE300FF6CAF /* UIView+Utils.m */,
 				ED8805F51F6699A200FF6CAF /* TXCustomAlertWindow.h */,
@@ -169,6 +177,18 @@
 				ED8805F01F66992C00FF6CAF /* UIView+AlertView.m */,
 			);
 			path = "UIView-AlertViewSources";
+			sourceTree = "<group>";
+		};
+		ED8805FB1F6784BE00FF6CAF /* BlockUI */ = {
+			isa = PBXGroup;
+			children = (
+				ED8805FC1F6784BE00FF6CAF /* BlockUI.h */,
+				ED8805FD1F6784BE00FF6CAF /* BUIControl.h */,
+				ED8805FE1F6784BE00FF6CAF /* BUIControl.m */,
+				ED8805FF1F6784BE00FF6CAF /* BUIView.h */,
+				ED8806001F6784BE00FF6CAF /* BUIView.m */,
+			);
+			path = BlockUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,12 +392,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8806011F6784BE00FF6CAF /* BUIControl.m in Sources */,
 				ED8805F11F66992C00FF6CAF /* UIView+AlertView.m in Sources */,
 				ED8805FA1F669BE300FF6CAF /* UIView+Utils.m in Sources */,
 				ED8805D11F66986000FF6CAF /* ViewController.m in Sources */,
 				ED8805CE1F66986000FF6CAF /* AppDelegate.m in Sources */,
 				ED8805F41F66997200FF6CAF /* CustomAlertView.m in Sources */,
 				ED8805CB1F66986000FF6CAF /* main.m in Sources */,
+				ED8806021F6784BE00FF6CAF /* BUIView.m in Sources */,
 				ED8805F71F6699A200FF6CAF /* TXCustomAlertWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

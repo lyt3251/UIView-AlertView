@@ -9,9 +9,22 @@
 #import "UIView+AlertView.h"
 #import <objc/runtime.h>
 #import "UIView+Utils.h"
+#import "BlockUI.h"
 #define kScreenWidth            [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight           [UIScreen mainScreen].bounds.size.height
+#define kLineHeight             0.5f
 
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+
+#define kColorWhite                 RGBCOLOR(254,254,254)
+#define kColorBlack             KColorNewTitleTxt              //黑色字体
+#define KColorNewTitleTxt           RGBCOLOR(0x33, 0x33, 0x33)
+#define kColorGray                  RGBCOLOR(115,115,115)           //灰色字体
+#define kFontMiddle                 [UIFont systemFontOfSize:15]
+#define kFontLarge_b                [UIFont boldSystemFontOfSize:16]
+#define kColorLine              RGBCOLOR(216,216,216)           //分割线颜色
+#define kColorClear                 [UIColor clearColor]
+#define KColorAppMain               RGBCOLOR(0xfb, 0x8d, 0xc4) //app主色调
 
 static void *CustomAlertViewKey = (void *)@"CustomAlertViewKey";
 
