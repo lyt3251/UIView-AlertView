@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Utils)
+@interface UIView (AVV_Utils)
 
 @property (nonatomic) CGFloat width_;
 @property (nonatomic) CGFloat height_;
@@ -26,7 +26,7 @@
 
 @end
 
-@interface UIButton (Utils)
+@interface UIButton (AVV_Utils)
 
 - (UIEdgeInsets)setImageEdgeInsetsFromOriginOffSet:(CGVector)vector imageSize:(CGSize)size;
 - (UIEdgeInsets)setImageEdgeInsetsFromCenterOffSet:(CGVector)vector imageSize:(CGSize)size;

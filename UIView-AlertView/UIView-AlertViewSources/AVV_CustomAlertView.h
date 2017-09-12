@@ -8,7 +8,7 @@
 
 #import "CustomIOSAlertView.h"
 
-@interface CustomAlertView : CustomIOSAlertView
+@interface AVV_CustomAlertView : CustomIOSAlertView
 
 - (CGSize)countScreenSize;
 - (CGSize)countDialogSize;

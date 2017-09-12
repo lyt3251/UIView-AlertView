@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 IST. All rights reserved.
 //
 
-#import "UIView+Utils.h"
+#import "UIView+AVV_Utils.h"
 
-@implementation UIView (Utils)
+@implementation UIView (AVV_Utils)
 
 - (id)initClearColorWithFrame:(CGRect)frame
 {
@@ -124,7 +124,7 @@
 
 @end
 
-@implementation UIButton (Util)
+@implementation UIButton (AVV_Util)
 
 //保持图片不变形，从坐标点调整偏移
 - (UIEdgeInsets)setImageEdgeInsetsFromOriginOffSet:(CGVector)vector imageSize:(CGSize)size

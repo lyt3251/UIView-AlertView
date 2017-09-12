@@ -16,12 +16,12 @@
 		ED8805D61F66986000FF6CAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8805D51F66986000FF6CAF /* Assets.xcassets */; };
 		ED8805D91F66986000FF6CAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED8805D71F66986000FF6CAF /* LaunchScreen.storyboard */; };
 		ED8805E41F66986000FF6CAF /* UIView_AlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805E31F66986000FF6CAF /* UIView_AlertViewTests.m */; };
-		ED8805F11F66992C00FF6CAF /* UIView+AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F01F66992C00FF6CAF /* UIView+AlertView.m */; };
-		ED8805F41F66997200FF6CAF /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F31F66997200FF6CAF /* CustomAlertView.m */; };
-		ED8805F71F6699A200FF6CAF /* TXCustomAlertWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F61F6699A200FF6CAF /* TXCustomAlertWindow.m */; };
-		ED8805FA1F669BE300FF6CAF /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F91F669BE300FF6CAF /* UIView+Utils.m */; };
-		ED8806011F6784BE00FF6CAF /* BUIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805FE1F6784BE00FF6CAF /* BUIControl.m */; };
-		ED8806021F6784BE00FF6CAF /* BUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8806001F6784BE00FF6CAF /* BUIView.m */; };
+		ED8805F11F66992C00FF6CAF /* UIView+AVV_AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F01F66992C00FF6CAF /* UIView+AVV_AlertView.m */; };
+		ED8805F41F66997200FF6CAF /* AVV_CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F31F66997200FF6CAF /* AVV_CustomAlertView.m */; };
+		ED8805F71F6699A200FF6CAF /* AVV_CustomAlertWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F61F6699A200FF6CAF /* AVV_CustomAlertWindow.m */; };
+		ED8805FA1F669BE300FF6CAF /* UIView+AVV_Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F91F669BE300FF6CAF /* UIView+AVV_Utils.m */; };
+		ED8806051F67C4DE00FF6CAF /* AVV_AlertViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8806041F67C4DE00FF6CAF /* AVV_AlertViewConfig.m */; };
+		ED8806081F67C5FA00FF6CAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8806071F67C5FA00FF6CAF /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,19 +53,18 @@
 		ED8805DF1F66986000FF6CAF /* UIView-AlertViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UIView-AlertViewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8805E31F66986000FF6CAF /* UIView_AlertViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIView_AlertViewTests.m; sourceTree = "<group>"; };
 		ED8805E51F66986000FF6CAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED8805EF1F66992C00FF6CAF /* UIView+AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AlertView.h"; sourceTree = "<group>"; };
-		ED8805F01F66992C00FF6CAF /* UIView+AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AlertView.m"; sourceTree = "<group>"; };
-		ED8805F21F66997200FF6CAF /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
-		ED8805F31F66997200FF6CAF /* CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
-		ED8805F51F6699A200FF6CAF /* TXCustomAlertWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXCustomAlertWindow.h; sourceTree = "<group>"; };
-		ED8805F61F6699A200FF6CAF /* TXCustomAlertWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXCustomAlertWindow.m; sourceTree = "<group>"; };
-		ED8805F81F669BE300FF6CAF /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
-		ED8805F91F669BE300FF6CAF /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
-		ED8805FC1F6784BE00FF6CAF /* BlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockUI.h; sourceTree = "<group>"; };
-		ED8805FD1F6784BE00FF6CAF /* BUIControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIControl.h; sourceTree = "<group>"; };
-		ED8805FE1F6784BE00FF6CAF /* BUIControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIControl.m; sourceTree = "<group>"; };
-		ED8805FF1F6784BE00FF6CAF /* BUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIView.h; sourceTree = "<group>"; };
-		ED8806001F6784BE00FF6CAF /* BUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIView.m; sourceTree = "<group>"; };
+		ED8805EF1F66992C00FF6CAF /* UIView+AVV_AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AVV_AlertView.h"; sourceTree = "<group>"; };
+		ED8805F01F66992C00FF6CAF /* UIView+AVV_AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AVV_AlertView.m"; sourceTree = "<group>"; };
+		ED8805F21F66997200FF6CAF /* AVV_CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVV_CustomAlertView.h; sourceTree = "<group>"; };
+		ED8805F31F66997200FF6CAF /* AVV_CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVV_CustomAlertView.m; sourceTree = "<group>"; };
+		ED8805F51F6699A200FF6CAF /* AVV_CustomAlertWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVV_CustomAlertWindow.h; sourceTree = "<group>"; };
+		ED8805F61F6699A200FF6CAF /* AVV_CustomAlertWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVV_CustomAlertWindow.m; sourceTree = "<group>"; };
+		ED8805F81F669BE300FF6CAF /* UIView+AVV_Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AVV_Utils.h"; sourceTree = "<group>"; };
+		ED8805F91F669BE300FF6CAF /* UIView+AVV_Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AVV_Utils.m"; sourceTree = "<group>"; };
+		ED8806031F67C4DE00FF6CAF /* AVV_AlertViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVV_AlertViewConfig.h; sourceTree = "<group>"; };
+		ED8806041F67C4DE00FF6CAF /* AVV_AlertViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVV_AlertViewConfig.m; sourceTree = "<group>"; };
+		ED8806061F67C54000FF6CAF /* AVV_MacroDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVV_MacroDef.h; sourceTree = "<group>"; };
+		ED8806071F67C5FA00FF6CAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FC96D50A380B1F6E37539463 /* libPods-UIView-AlertViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UIView-AlertViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -74,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8806081F67C5FA00FF6CAF /* CoreGraphics.framework in Frameworks */,
 				85B6F2F8A2CEEAAE7F3114C7 /* libPods-UIView-AlertView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +103,7 @@
 		9EF0C04D8E8499023C4C6AA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED8806071F67C5FA00FF6CAF /* CoreGraphics.framework */,
 				5582948293BFD96F910C7E32 /* libPods-UIView-AlertView.a */,
 				FC96D50A380B1F6E37539463 /* libPods-UIView-AlertViewTests.a */,
 			);
@@ -166,29 +167,19 @@
 		ED8805EE1F66992C00FF6CAF /* UIView-AlertViewSources */ = {
 			isa = PBXGroup;
 			children = (
-				ED8805FB1F6784BE00FF6CAF /* BlockUI */,
-				ED8805F81F669BE300FF6CAF /* UIView+Utils.h */,
-				ED8805F91F669BE300FF6CAF /* UIView+Utils.m */,
-				ED8805F51F6699A200FF6CAF /* TXCustomAlertWindow.h */,
-				ED8805F61F6699A200FF6CAF /* TXCustomAlertWindow.m */,
-				ED8805F21F66997200FF6CAF /* CustomAlertView.h */,
-				ED8805F31F66997200FF6CAF /* CustomAlertView.m */,
-				ED8805EF1F66992C00FF6CAF /* UIView+AlertView.h */,
-				ED8805F01F66992C00FF6CAF /* UIView+AlertView.m */,
+				ED8805F81F669BE300FF6CAF /* UIView+AVV_Utils.h */,
+				ED8805F91F669BE300FF6CAF /* UIView+AVV_Utils.m */,
+				ED8805F51F6699A200FF6CAF /* AVV_CustomAlertWindow.h */,
+				ED8805F61F6699A200FF6CAF /* AVV_CustomAlertWindow.m */,
+				ED8805F21F66997200FF6CAF /* AVV_CustomAlertView.h */,
+				ED8805F31F66997200FF6CAF /* AVV_CustomAlertView.m */,
+				ED8805EF1F66992C00FF6CAF /* UIView+AVV_AlertView.h */,
+				ED8805F01F66992C00FF6CAF /* UIView+AVV_AlertView.m */,
+				ED8806031F67C4DE00FF6CAF /* AVV_AlertViewConfig.h */,
+				ED8806041F67C4DE00FF6CAF /* AVV_AlertViewConfig.m */,
+				ED8806061F67C54000FF6CAF /* AVV_MacroDef.h */,
 			);
 			path = "UIView-AlertViewSources";
-			sourceTree = "<group>";
-		};
-		ED8805FB1F6784BE00FF6CAF /* BlockUI */ = {
-			isa = PBXGroup;
-			children = (
-				ED8805FC1F6784BE00FF6CAF /* BlockUI.h */,
-				ED8805FD1F6784BE00FF6CAF /* BUIControl.h */,
-				ED8805FE1F6784BE00FF6CAF /* BUIControl.m */,
-				ED8805FF1F6784BE00FF6CAF /* BUIView.h */,
-				ED8806001F6784BE00FF6CAF /* BUIView.m */,
-			);
-			path = BlockUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,15 +383,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED8806011F6784BE00FF6CAF /* BUIControl.m in Sources */,
-				ED8805F11F66992C00FF6CAF /* UIView+AlertView.m in Sources */,
-				ED8805FA1F669BE300FF6CAF /* UIView+Utils.m in Sources */,
+				ED8805F11F66992C00FF6CAF /* UIView+AVV_AlertView.m in Sources */,
+				ED8805FA1F669BE300FF6CAF /* UIView+AVV_Utils.m in Sources */,
 				ED8805D11F66986000FF6CAF /* ViewController.m in Sources */,
 				ED8805CE1F66986000FF6CAF /* AppDelegate.m in Sources */,
-				ED8805F41F66997200FF6CAF /* CustomAlertView.m in Sources */,
+				ED8805F41F66997200FF6CAF /* AVV_CustomAlertView.m in Sources */,
+				ED8806051F67C4DE00FF6CAF /* AVV_AlertViewConfig.m in Sources */,
 				ED8805CB1F66986000FF6CAF /* main.m in Sources */,
-				ED8806021F6784BE00FF6CAF /* BUIView.m in Sources */,
-				ED8805F71F6699A200FF6CAF /* TXCustomAlertWindow.m in Sources */,
+				ED8805F71F6699A200FF6CAF /* AVV_CustomAlertWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

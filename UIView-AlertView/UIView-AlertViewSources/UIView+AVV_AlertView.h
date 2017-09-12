@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomAlertView.h"
+#import "AVV_CustomAlertView.h"
+#import "AVV_AlertViewConfig.h"
 
-@interface ButtonItem : NSObject
+@interface AVV_ButtonItem : NSObject
 
 @property (retain, nonatomic) NSString *label;
 @property (nonatomic, strong) UIColor *textColor;
@@ -19,18 +20,17 @@
 +(id)itemWithLabel:(NSString *)inLabel andTextColor:(UIColor *)textColor action:(void(^)(void))action;
 @end
 
-@class ButtonItem;
+@class AVV_ButtonItem;
 
-@interface UIView (AlertView)
+@interface UIView (AVV_AlertView)
 
-@property (nonatomic, strong) CustomAlertView *alertView;
+@property (nonatomic, strong) AVV_CustomAlertView *alertView;
+@property (nonatomic, strong) AVV_AlertViewConfig *alertCfg;
 
-- (void)showAlertViewWithMessage:(NSString *)message andButtonItems:(ButtonItem *)buttonItem, ...NS_REQUIRES_NIL_TERMINATION;
-- (void)showVerticalAlertViewWithMessage:(NSString *)message andButtonItems:(ButtonItem *)buttonItem, ...NS_REQUIRES_NIL_TERMINATION;
+- (void)showAlertViewWithMessage:(NSString *)message andButtonItems:(AVV_ButtonItem *)buttonItem, ...NS_REQUIRES_NIL_TERMINATION;
+- (void)showVerticalAlertViewWithMessage:(NSString *)message andButtonItems:(AVV_ButtonItem *)buttonItem, ...NS_REQUIRES_NIL_TERMINATION;
 //屏蔽特定error的弹窗
-//- (void)showAlertViewWithError:(NSError *)error andButtonItems:(ButtonItem *)buttonItem, ...NS_REQUIRES_NIL_TERMINATION;
 - (void)showAlertViewWithMessage:(NSString *)message andButtonItemsArr:(NSArray *)buttonsArray;
-//- (void)showAlertViewWithError:(NSError *)error andButtonItemsArr:(NSArray *)buttonsArray;
 - (void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message andButtonItemsArr:(NSArray *)buttonsArray;
 
 @end

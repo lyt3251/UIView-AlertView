@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 lingiqngwan. All rights reserved.
 //
 
-#import "TXCustomAlertWindow.h"
+#import "AVV_CustomAlertWindow.h"
 
-@implementation TXCustomAlertWindow
+@implementation AVV_CustomAlertWindow
 
-+ (TXCustomAlertWindow *)sharedWindow
++ (AVV_CustomAlertWindow *)sharedWindow
 {
-    static TXCustomAlertWindow *_sharedWindow = nil;
+    static AVV_CustomAlertWindow *_sharedWindow = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedWindow = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

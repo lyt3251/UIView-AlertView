@@ -6,69 +6,43 @@
 //  Copyright (c) 2015年 lingiqngwan. All rights reserved.
 //
 
-#import "UIView+AlertView.h"
+#import "UIView+AVV_AlertView.h"
 #import <objc/runtime.h>
-#import "UIView+Utils.h"
-#import "BlockUI.h"
-#define kScreenWidth            [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight           [UIScreen mainScreen].bounds.size.height
-#define kLineHeight             0.5f
+#import "UIView+AVV_Utils.h"
+#import <BUIBlockUI.h>
+#import "AVV_MacroDef.h"
 
-#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+static void *AVV_CustomAlertViewKey = (void *)@"AVV_CustomAlertViewKey";
+static void *AVV_AlertViewConfigKey = (void *)@"AVV_AlertViewConfigKey";
 
-#define kColorWhite                 RGBCOLOR(254,254,254)
-#define kColorBlack             KColorNewTitleTxt              //黑色字体
-#define KColorNewTitleTxt           RGBCOLOR(0x33, 0x33, 0x33)
-#define kColorGray                  RGBCOLOR(115,115,115)           //灰色字体
-#define kFontMiddle                 [UIFont systemFontOfSize:15]
-#define kFontLarge_b                [UIFont boldSystemFontOfSize:16]
-#define kColorLine              RGBCOLOR(216,216,216)           //分割线颜色
-#define kColorClear                 [UIColor clearColor]
-#define KColorAppMain               RGBCOLOR(0xfb, 0x8d, 0xc4) //app主色调
-
-static void *CustomAlertViewKey = (void *)@"CustomAlertViewKey";
-
-@implementation UIView (AlertView)
+@implementation UIView (AVV_AlertView)
 
 @dynamic alertView;
+@dynamic alertCfg;
 
-- (CustomAlertView *)alertView{
-    return objc_getAssociatedObject(self, CustomAlertViewKey);
+- (AVV_CustomAlertView *)alertView{
+    return objc_getAssociatedObject(self, AVV_CustomAlertViewKey);
 }
 
-- (void)setAlertView:(CustomAlertView *)alertView
+- (void)setAlertView:(AVV_CustomAlertView *)alertView
 {
-    objc_setAssociatedObject(self, CustomAlertViewKey, alertView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, AVV_CustomAlertViewKey, alertView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
+
+- (AVV_AlertViewConfig *)alertCfg
+{
+    return objc_getAssociatedObject(self, AVV_AlertViewConfigKey);
+}
+
+- (void)setAlertCfg:(AVV_AlertViewConfig *)alertCfg
+{
+    objc_setAssociatedObject(self, AVV_AlertViewConfigKey, alertCfg, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 
 
 #pragma mark - ShowAlertView
-//- (void)showAlertViewWithError:(NSError *)error andButtonItems:(ButtonItem *)buttonItem, ...{
-//    if (error.code == TX_STATUS_UNAUTHORIZED ) {
-//        return;
-//    }
-//    
-//    NSString *message = error.userInfo[kErrorMessage];
-//    va_list args;
-//    va_start(args, buttonItem);
-//    
-//    NSMutableArray *buttonsArray = [NSMutableArray array];
-//    if(buttonItem)
-//    {
-//        [buttonsArray addObject:buttonItem];
-//        ButtonItem *nextItem;
-//        while((nextItem = va_arg(args, ButtonItem *)))
-//        {
-//            [buttonsArray addObject:nextItem];
-//        }
-//    }
-//    [self showAlertViewWithMessage:message andButtonItemsArr:buttonsArray];
-//    
-//}
-//- (void)showAlertViewWithError:(NSError *)error andButtonItemsArr:(NSArray *)buttonsArray{
-//    NSString *message = error.userInfo[kErrorMessage];
-//    [self showAlertViewWithMessage:message andButtonItemsArr:buttonsArray];
-//}
 - (void)showAlertViewWithMessage:(NSString *)message andButtonItemsArr:(NSArray *)buttonsArray
 {
     [self showAlertViewWithMessage:message andButtonItemsArr:buttonsArray isVertical:NO];
@@ -94,18 +68,25 @@ static void *CustomAlertViewKey = (void *)@"CustomAlertViewKey";
     if (self.alertView) {
         [self.alertView removeFromSuperview];
     }
+    
+    if(!self.alertCfg)
+    {
+        self.alertCfg = [AVV_AlertViewConfig sharedInstance];
+    }
+    AVV_AlertViewConfig *config = self.alertCfg;
+    
     [self endEditing:YES];
     
-    CGFloat alertWidth = kScreenWidth - 80;
+    CGFloat alertWidth = kAVV_ScreenWidth - 80;
     
     UIView *alertBgView = [[UIView alloc] initWithFrame:CGRectZero];
-    alertBgView.backgroundColor = kColorWhite;
+    alertBgView.backgroundColor = config.alertViewBKColor;
     alertBgView.clipsToBounds = YES;
     alertBgView.layer.cornerRadius = 3.f;
     
     UILabel *titleLb = [[UILabel alloc] initClearColorWithFrame:CGRectZero];
-    titleLb.font = kFontLarge_b;
-    titleLb.textColor = kColorBlack;
+    titleLb.font = config.titleFont;
+    titleLb.textColor = config.titleColor;
     titleLb.text = title;
     titleLb.textAlignment = NSTextAlignmentCenter;
     [alertBgView addSubview:titleLb];
@@ -115,12 +96,12 @@ static void *CustomAlertViewKey = (void *)@"CustomAlertViewKey";
     }
     
     UILabel *messageLb = [[UILabel alloc] initClearColorWithFrame:CGRectZero];
-    messageLb.font = kFontMiddle;
+    messageLb.font = config.msgFont;
     messageLb.numberOfLines = 0;
     if (titleLb.height_) {
-        messageLb.textColor = kColorGray;
+        messageLb.textColor = config.msgColor;
     }else{
-        messageLb.textColor = kColorBlack;
+        messageLb.textColor = config.msgNoTitleColor;
     }
     messageLb.textAlignment = NSTextAlignmentLeft;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:message];
@@ -153,23 +134,23 @@ static void *CustomAlertViewKey = (void *)@"CustomAlertViewKey";
             CGFloat X = messageLb.minX;
             CGFloat Y = messageLb.maxY + 15;
             __weak typeof(self)tmpObject = self;
-            for(ButtonItem *item in buttonsArray)
+            for(AVV_ButtonItem *item in buttonsArray)
             {
                 NSInteger index = [buttonsArray indexOfObject:item];
                 UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
                 if (index != buttonsArray.count - 1) {
-                    btn.layer.borderColor = kColorLine.CGColor;
-                    btn.layer.borderWidth = kLineHeight;
-                    [btn setTitleColor:kColorGray forState:UIControlStateNormal];
-                    btn.backgroundColor = kColorClear;
+                    btn.layer.borderColor =  config.lineColor.CGColor;
+                    btn.layer.borderWidth = config.lineHeight;
+                    [btn setTitleColor:config.btnNormalColor forState:UIControlStateNormal];
+                    btn.backgroundColor = config.btnNormalBKColor;
                 }else{
-                    [btn setTitleColor:kColorWhite forState:UIControlStateNormal];
-                    btn.backgroundColor = KColorAppMain;
+                    [btn setTitleColor:config.btnSelectedColor forState:UIControlStateNormal];
+                    btn.backgroundColor = config.btnSelectedBKColor;
                 }
                 btn.layer.cornerRadius = 3.f;
                 btn.layer.masksToBounds = YES;
                 [btn setTitle:item.label forState:UIControlStateNormal];
-                btn.titleLabel.font = kFontMiddle;
+                btn.titleLabel.font = config.btnNormalFont;
                 btn.frame = CGRectMake(X, Y, width, 34);
                 [alertBgView addSubview:btn];
                 [btn handleControlEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
@@ -189,23 +170,23 @@ static void *CustomAlertViewKey = (void *)@"CustomAlertViewKey";
             CGFloat width = (alertWidth - 15 * (buttonsArray.count + 1))/buttonsArray.count;
             CGFloat X = 15;
             __weak typeof(self)tmpObject = self;
-            for(ButtonItem *item in buttonsArray)
+            for(AVV_ButtonItem *item in buttonsArray)
             {
                 NSInteger index = [buttonsArray indexOfObject:item];
                 UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
                 if (index != buttonsArray.count - 1) {
-                    btn.layer.borderColor = kColorLine.CGColor;
-                    btn.layer.borderWidth = kLineHeight;
-                    [btn setTitleColor:kColorGray forState:UIControlStateNormal];
-                    btn.backgroundColor = kColorClear;
+                    btn.layer.borderColor =  config.lineColor.CGColor;
+                    btn.layer.borderWidth = config.lineHeight;
+                    [btn setTitleColor:config.btnNormalColor forState:UIControlStateNormal];
+                    btn.backgroundColor = config.btnNormalBKColor;
                 }else{
-                    [btn setTitleColor:kColorWhite forState:UIControlStateNormal];
-                    btn.backgroundColor = KColorAppMain;
+                    [btn setTitleColor:config.btnSelectedColor forState:UIControlStateNormal];
+                    btn.backgroundColor = config.btnSelectedBKColor;
                 }
                 btn.layer.cornerRadius = 3.f;
                 btn.layer.masksToBounds = YES;
                 [btn setTitle:item.label forState:UIControlStateNormal];
-                btn.titleLabel.font = kFontMiddle;
+                btn.titleLabel.font = config.btnNormalFont;
                 btn.frame = CGRectMake(X, messageLb.maxY + 20, width, 34);
                 [alertBgView addSubview:btn];
                 [btn handleControlEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
@@ -219,7 +200,7 @@ static void *CustomAlertViewKey = (void *)@"CustomAlertViewKey";
             }
         }
     }
-    self.alertView = [[CustomAlertView alloc] init];
+    self.alertView = [[AVV_CustomAlertView alloc] init];
     self.alertView.buttonTitles = [NSArray array];
     [self.alertView setContainerView:alertBgView];
     [self.alertView show];
@@ -237,16 +218,16 @@ static void *CustomAlertViewKey = (void *)@"CustomAlertViewKey";
     [self showAlertViewWithTitle:nil andMessage:message andButtonItemsArr:buttonsArray isVertical:isVertical];
 }
 
-- (void)showAlertViewWithMessage:(NSString *)message andButtonItems:(ButtonItem *)buttonItem, ...{
+- (void)showAlertViewWithMessage:(NSString *)message andButtonItems:(AVV_ButtonItem *)ButtonItem, ...{
     va_list args;
-    va_start(args, buttonItem);
+    va_start(args, ButtonItem);
     
     NSMutableArray *buttonsArray = [NSMutableArray array];
-    if(buttonItem)
+    if(ButtonItem)
     {
-        [buttonsArray addObject:buttonItem];
-        ButtonItem *nextItem;
-        while((nextItem = va_arg(args, ButtonItem *)))
+        [buttonsArray addObject:ButtonItem];
+        AVV_ButtonItem *nextItem;
+        while((nextItem = va_arg(args, AVV_ButtonItem *)))
         {
             [buttonsArray addObject:nextItem];
         }
@@ -255,16 +236,16 @@ static void *CustomAlertViewKey = (void *)@"CustomAlertViewKey";
     [self showAlertViewWithMessage:message andButtonItemsArr:buttonsArray];
 }
 //添加竖着的按钮alert
-- (void)showVerticalAlertViewWithMessage:(NSString *)message andButtonItems:(ButtonItem *)buttonItem, ...{
+- (void)showVerticalAlertViewWithMessage:(NSString *)message andButtonItems:(AVV_ButtonItem *)ButtonItem, ...{
     va_list args;
-    va_start(args, buttonItem);
+    va_start(args, ButtonItem);
     
     NSMutableArray *buttonsArray = [NSMutableArray array];
-    if(buttonItem)
+    if(ButtonItem)
     {
-        [buttonsArray addObject:buttonItem];
-        ButtonItem *nextItem;
-        while((nextItem = va_arg(args, ButtonItem *)))
+        [buttonsArray addObject:ButtonItem];
+        AVV_ButtonItem *nextItem;
+        while((nextItem = va_arg(args, AVV_ButtonItem *)))
         {
             [buttonsArray addObject:nextItem];
         }
@@ -274,7 +255,7 @@ static void *CustomAlertViewKey = (void *)@"CustomAlertViewKey";
 }
 @end
 
-@implementation ButtonItem
+@implementation AVV_ButtonItem
 
 +(id)item
 {
@@ -283,14 +264,14 @@ static void *CustomAlertViewKey = (void *)@"CustomAlertViewKey";
 
 +(id)itemWithLabel:(NSString *)inLabel
 {
-    ButtonItem *newItem = [self item];
+    AVV_ButtonItem *newItem = [self item];
     [newItem setLabel:inLabel];
     return newItem;
 }
 
 +(id)itemWithLabel:(NSString *)inLabel andTextColor:(UIColor *)textColor action:(void(^)(void))action
 {
-    ButtonItem *newItem = [self itemWithLabel:inLabel];
+    AVV_ButtonItem *newItem = [self itemWithLabel:inLabel];
     newItem.textColor = textColor;
     [newItem setAction:action];
     return newItem;

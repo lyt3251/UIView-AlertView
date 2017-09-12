@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TXCustomAlertWindow : UIWindow
+@interface AVV_CustomAlertWindow : UIWindow
 
-+ (TXCustomAlertWindow *)sharedWindow;
++ (AVV_CustomAlertWindow *)sharedWindow;
 
 - (void)showWithView:(UIView *)view;
 

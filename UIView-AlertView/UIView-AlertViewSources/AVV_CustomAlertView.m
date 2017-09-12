@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 lingiqngwan. All rights reserved.
 //
 
-#import "CustomAlertView.h"
-#import "TXCustomAlertWindow.h"
+#import "AVV_CustomAlertView.h"
+#import "AVV_CustomAlertWindow.h"
 
-@implementation CustomAlertView
+@implementation AVV_CustomAlertView
 
 - (void)show
 {
