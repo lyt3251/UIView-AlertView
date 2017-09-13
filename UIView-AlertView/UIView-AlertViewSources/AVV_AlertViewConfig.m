@@ -47,7 +47,7 @@ static AVV_AlertViewConfig *sharedInstance;
         
         self.alertViewBKColor = kAVV_ColorWhite;
         
-        self.titleColor = kAVV_ColorWhite;
+        self.titleColor = kAVV_ColorBlack;
         self.titleFont = kAVV_FontLarge_b;
         
         self.msgFont = kAVV_FontMiddle;
@@ -55,11 +55,11 @@ static AVV_AlertViewConfig *sharedInstance;
         self.msgNoTitleColor = kAVV_ColorBlack;
         
         self.btnNormalFont = kAVV_FontMiddle;
-        self.btnNormalColor = kAVV_ColorGray;
+        self.btnNormalColor = AVV_RGBCOLOR(0x00, 0x7a, 0xff);
         self.btnNormalBKColor = kAVV_ColorWhite;
         
         self.btnSelectedFont = kAVV_FontLarge_b;
-        self.btnSelectedColor = kAVV_ColorAppMain;
+        self.btnSelectedColor = [UIColor redColor];
         self.btnSelectedBKColor = kAVV_ColorWhite;
         
 

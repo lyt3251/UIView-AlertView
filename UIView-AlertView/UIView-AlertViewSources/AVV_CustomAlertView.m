@@ -17,6 +17,7 @@
     
     self.dialogView.layer.shouldRasterize = YES;
     self.dialogView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    self.dialogView.layer.borderWidth = 0;
     
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
@@ -27,7 +28,7 @@
     }
 #endif
     
-    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+    self.backgroundColor = [UIColor colorWithRed:0x66/255 green:0 blue:0 alpha:0.7];
     
     [self addSubview:self.dialogView];
     
@@ -82,7 +83,7 @@
     
     [UIView animateWithDuration:0.2f delay:0.0 options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4f];
+                         self.backgroundColor = [UIColor colorWithRed:0x66/255 green:0 blue:0 alpha:0.7f];
                          self.dialogView.layer.opacity = 1.0f;
                          self.dialogView.layer.transform = CATransform3DMakeScale(1, 1, 1);
                      }

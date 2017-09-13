@@ -22,7 +22,7 @@
 #define kAVV_ColorGray                  AVV_RGBCOLOR(115,115,115)           //灰色字体
 #define kAVV_FontMiddle                 [UIFont systemFontOfSize:15]
 #define kAVV_FontLarge_b                [UIFont boldSystemFontOfSize:16]
-#define kAVV_ColorLine                  AVV_RGBCOLOR(216,216,216)           //分割线颜色
+#define kAVV_ColorLine                  AVV_RGBCOLOR(0xce,0xbf,0xc0)           //分割线颜色
 #define kAVV_ColorClear                 [UIColor clearColor]
 #define kAVV_ColorAppMain               AVV_RGBCOLOR(0xfb, 0x8d, 0xc4) //app主色调
 

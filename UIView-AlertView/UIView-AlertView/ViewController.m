@@ -26,24 +26,44 @@
     [button setTitle:@"show alertview" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [self.view addSubview:button];
-    button.frame = CGRectMake(0, 0, 200, 50);
-    button.center = self.view.center;
+    button.frame = CGRectMake(100, 200, 200, 50);
+//    button.center = self.view.center;
     
     __weak typeof(self) weakSelf = self;
     [button handleControlEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
-        
-        AVV_ButtonItem *okItem = [AVV_ButtonItem itemWithLabel:@"确定" andTextColor:[UIColor redColor] action:^{
-            
-        }];
-        
-        AVV_ButtonItem *cancelItem = [AVV_ButtonItem itemWithLabel:@"取消" andTextColor:[UIColor redColor] action:^{
-            
-        }];
-        
-        [weakSelf.view showAlertViewWithMessage:@"title" andButtonItems:okItem,cancelItem, nil];
+        [weakSelf showAlertView];
+//        [weakSelf showAlertVC];
+
     }];
     
 }
+
+
+-(void)showAlertView
+{
+    AVV_ButtonItem *okItem = [AVV_ButtonItem itemWithLabel:@"确定" andTextColor:[UIColor redColor] action:^{
+        
+    }];
+    
+    AVV_ButtonItem *cancelItem = [AVV_ButtonItem itemWithLabel:@"取消" andTextColor:[UIColor redColor] action:^{
+        
+    }];
+    
+    AVV_ButtonItem *otherItem = [AVV_ButtonItem itemWithLabel:@"其他" andTextColor:[UIColor redColor] action:^{
+        
+    }];
+    
+//    [self.view showAlertViewWithMessage:@"title" andButtonItems:okItem, otherItem,cancelItem, nil];
+    [self.view showAlertViewWithTitle:@"title" andMessage:@"message messages!!!!!" andButtonItemsArr:@[okItem, cancelItem, otherItem] ];
+}
+
+-(void)showAlertVC
+{
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"title" message:@"message" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [self presentViewController:alertC animated:YES completion:nil];
+}
+
 
 
 - (void)didReceiveMemoryWarning {

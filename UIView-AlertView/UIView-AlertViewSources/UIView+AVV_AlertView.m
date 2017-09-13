@@ -78,6 +78,10 @@ static void *AVV_AlertViewConfigKey = (void *)@"AVV_AlertViewConfigKey";
     [self endEditing:YES];
     
     CGFloat alertWidth = kAVV_ScreenWidth - 80;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        alertWidth = 270;
+    }
+    
     
     UIView *alertBgView = [[UIView alloc] initWithFrame:CGRectZero];
     alertBgView.backgroundColor = config.alertViewBKColor;
@@ -125,6 +129,12 @@ static void *AVV_AlertViewConfigKey = (void *)@"AVV_AlertViewConfigKey";
             messageLb.frame = CGRectMake(22, 20, messageSize.width, messageSize.height);
         }
     }
+    UIView *lineView = [[UIView alloc] init];
+    lineView.backgroundColor = config.lineColor;
+    [alertBgView addSubview:lineView];
+    CGFloat beginY = messageLb.maxY + 15;
+    lineView.frame = CGRectMake(0, beginY, alertWidth, config.lineHeight);
+    
     
     if (isVertical) {
         if ([buttonsArray count] == 0) {
@@ -139,8 +149,13 @@ static void *AVV_AlertViewConfigKey = (void *)@"AVV_AlertViewConfigKey";
                 NSInteger index = [buttonsArray indexOfObject:item];
                 UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
                 if (index != buttonsArray.count - 1) {
-                    btn.layer.borderColor =  config.lineColor.CGColor;
-                    btn.layer.borderWidth = config.lineHeight;
+//                    btn.layer.borderColor =  config.lineColor.CGColor;
+//                    btn.layer.borderWidth = config.lineHeight;
+                    UIView *rightLine = [[UIView alloc] init];
+                    rightLine.backgroundColor = config.lineColor;
+                    [alertBgView addSubview:rightLine];
+                    rightLine.frame = CGRectMake(X+width, beginY, config.lineHeight, Y +34 + 18 +10 -  beginY);
+                    
                     [btn setTitleColor:config.btnNormalColor forState:UIControlStateNormal];
                     btn.backgroundColor = config.btnNormalBKColor;
                 }else{
@@ -175,8 +190,7 @@ static void *AVV_AlertViewConfigKey = (void *)@"AVV_AlertViewConfigKey";
                 NSInteger index = [buttonsArray indexOfObject:item];
                 UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
                 if (index != buttonsArray.count - 1) {
-                    btn.layer.borderColor =  config.lineColor.CGColor;
-                    btn.layer.borderWidth = config.lineHeight;
+
                     [btn setTitleColor:config.btnNormalColor forState:UIControlStateNormal];
                     btn.backgroundColor = config.btnNormalBKColor;
                 }else{
@@ -187,7 +201,7 @@ static void *AVV_AlertViewConfigKey = (void *)@"AVV_AlertViewConfigKey";
                 btn.layer.masksToBounds = YES;
                 [btn setTitle:item.label forState:UIControlStateNormal];
                 btn.titleLabel.font = config.btnNormalFont;
-                btn.frame = CGRectMake(X, messageLb.maxY + 20, width, 34);
+                btn.frame = CGRectMake(X, messageLb.maxY + 20 + 6.5, width, 34);
                 [alertBgView addSubview:btn];
                 [btn handleControlEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
                     [tmpObject.alertView close];
@@ -196,7 +210,14 @@ static void *AVV_AlertViewConfigKey = (void *)@"AVV_AlertViewConfigKey";
                     }
                 }];
                 X = btn.maxX + 15;
-                alertBgView.frame = CGRectMake(0, 0, alertWidth, btn.maxY + 18);
+                alertBgView.frame = CGRectMake(0, 0, alertWidth, btn.maxY + 11.5);
+                if (index != buttonsArray.count - 1) {
+                    UIView *rightLine = [[UIView alloc] init];
+                    rightLine.backgroundColor = config.lineColor;
+                    [alertBgView addSubview:rightLine];
+                    rightLine.frame = CGRectMake(btn.maxX + 15/2, beginY, config.lineHeight, alertBgView.maxY -  beginY);
+                }
+                
             }
         }
     }
