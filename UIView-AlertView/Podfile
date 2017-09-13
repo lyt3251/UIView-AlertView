@@ -6,7 +6,6 @@ target 'UIView-AlertView' do
   # use_frameworks!
 
   # Pods for UIView-AlertView
-  pod 'CustomIOSAlertView', '~> 0.9.5'
   pod 'BlockUI', '~> 1.0.0'
   target 'UIView-AlertViewTests' do
     inherit! :search_paths

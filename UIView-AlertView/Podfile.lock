@@ -1,15 +1,12 @@
 PODS:
   - BlockUI (1.0.0)
-  - CustomIOSAlertView (0.9.5)
 
 DEPENDENCIES:
   - BlockUI (~> 1.0.0)
-  - CustomIOSAlertView (~> 0.9.5)
 
 SPEC CHECKSUMS:
   BlockUI: 28f0ea9ea333bddef58cb26182dba111d394677c
-  CustomIOSAlertView: cc4fa8e36219be3fd5ebcd40789f5b4aaae0f38e
 
-PODFILE CHECKSUM: 2e039e71fc276e30990b5f3e1a229ea5556e72bb
+PODFILE CHECKSUM: 9969fd7e2b80efc245f5444022518a90f2c2f9ee
 
 COCOAPODS: 1.1.1

@@ -6,13 +6,9 @@
 //  Copyright (c) 2015年 lingiqngwan. All rights reserved.
 //
 
-#import "CustomIOSAlertView.h"
+#import "AVV_CustomIOSAlertView.h"
 
-@interface AVV_CustomAlertView : CustomIOSAlertView
+@interface AVV_CustomAlertView : AVV_CustomIOSAlertView
 
-- (CGSize)countScreenSize;
-- (CGSize)countDialogSize;
-- (UIView *)createContainerView;
-- (void)applyMotionEffects;
 
 @end

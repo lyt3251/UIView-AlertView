@@ -9,7 +9,7 @@
 #import "UIView+AVV_AlertView.h"
 #import <objc/runtime.h>
 #import "UIView+AVV_Utils.h"
-#import <BUIBlockUI.h>
+#import "BUIBlockUI.h"
 #import "AVV_MacroDef.h"
 
 static void *AVV_CustomAlertViewKey = (void *)@"AVV_CustomAlertViewKey";

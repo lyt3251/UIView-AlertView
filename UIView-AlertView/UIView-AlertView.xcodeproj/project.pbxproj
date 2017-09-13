@@ -22,6 +22,7 @@
 		ED8805FA1F669BE300FF6CAF /* UIView+AVV_Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8805F91F669BE300FF6CAF /* UIView+AVV_Utils.m */; };
 		ED8806051F67C4DE00FF6CAF /* AVV_AlertViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8806041F67C4DE00FF6CAF /* AVV_AlertViewConfig.m */; };
 		ED8806081F67C5FA00FF6CAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8806071F67C5FA00FF6CAF /* CoreGraphics.framework */; };
+		ED88060E1F690A4C00FF6CAF /* AVV_CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED88060D1F690A4C00FF6CAF /* AVV_CustomIOSAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		ED8806041F67C4DE00FF6CAF /* AVV_AlertViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVV_AlertViewConfig.m; sourceTree = "<group>"; };
 		ED8806061F67C54000FF6CAF /* AVV_MacroDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVV_MacroDef.h; sourceTree = "<group>"; };
 		ED8806071F67C5FA00FF6CAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ED88060C1F690A4C00FF6CAF /* AVV_CustomIOSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVV_CustomIOSAlertView.h; sourceTree = "<group>"; };
+		ED88060D1F690A4C00FF6CAF /* AVV_CustomIOSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVV_CustomIOSAlertView.m; sourceTree = "<group>"; };
 		FC96D50A380B1F6E37539463 /* libPods-UIView-AlertViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UIView-AlertViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -167,6 +170,8 @@
 		ED8805EE1F66992C00FF6CAF /* UIView-AlertViewSources */ = {
 			isa = PBXGroup;
 			children = (
+				ED88060C1F690A4C00FF6CAF /* AVV_CustomIOSAlertView.h */,
+				ED88060D1F690A4C00FF6CAF /* AVV_CustomIOSAlertView.m */,
 				ED8805F81F669BE300FF6CAF /* UIView+AVV_Utils.h */,
 				ED8805F91F669BE300FF6CAF /* UIView+AVV_Utils.m */,
 				ED8805F51F6699A200FF6CAF /* AVV_CustomAlertWindow.h */,
@@ -391,6 +396,7 @@
 				ED8806051F67C4DE00FF6CAF /* AVV_AlertViewConfig.m in Sources */,
 				ED8805CB1F66986000FF6CAF /* main.m in Sources */,
 				ED8805F71F6699A200FF6CAF /* AVV_CustomAlertWindow.m in Sources */,
+				ED88060E1F690A4C00FF6CAF /* AVV_CustomIOSAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
