@@ -53,6 +53,10 @@
         
     }];
     
+    
+    AVV_AlertViewConfig *config = [AVV_AlertViewConfig sharedInstance];
+    config.titleColor = [UIColor redColor];
+    
 //    [self.view showAlertViewWithMessage:@"title" andButtonItems:okItem, otherItem,cancelItem, nil];
     [self.view showAlertViewWithTitle:@"title" andMessage:@"message messages!!!!!" andButtonItemsArr:@[okItem, cancelItem, otherItem] ];
 }
