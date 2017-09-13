@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "UIView-AlertView", "UIView-AlertView/UIView-AlertViewSources/*.{h,m}"
+  s.source_files  = "UIView-AlertView/UIView-AlertViewSources/*.{h,m}"
   #s.exclude_files = "UIView-AlertView/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -118,7 +118,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  s.frameworks = "UIKit", "Founction"
+  s.frameworks = "UIKit", "Foundation"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
